@@ -1,0 +1,133 @@
+/* Reset básico */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Configuração do corpo da página */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background: url('./imagem/bg000tiagobackground.png') no-repeat center center;
+  background-size: cover; /* Faz a imagem cobrir toda a tela */
+  background-attachment: fixed; /* Mantém a imagem fixa ao rolar a página */
+  background-position: center; /* Centraliza a imagem */
+  background-color: black;
+  font-family: 'Cinzel', serif;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Container geral */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+}
+
+/* Content Box - Caixa centralizada */
+.content-box {
+  background: rgba(0, 0, 0, 0.7); /* Fundo escuro translúcido */
+  padding: 30px;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0px 4px 15px rgba(221, 158, 113, 0.204);
+  max-width: 400px;
+  width: 90%;
+}
+
+/* Título */
+h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}
+
+/* Input */
+input {
+  width: 100%;
+  padding: 12px;
+  font-size: 1.2em;
+  border: 2px rgba(0, 0, 0, 0.7);
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  text-align: center;
+  outline: none;
+  margin-bottom: 15px;
+}
+
+input::placeholder {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 14px; 
+  color: #8f8f8f; 
+  opacity: 1; /* Garante que o placeholder fique visível */
+}
+
+
+/* Botões */
+button {
+  background-color: #b00000;
+  border: none;
+  padding: 12px 20px;
+  font-size: 1.2em;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  font-family: 'Cinzel', serif;
+  border-radius: 5px;
+  width: 100%;
+  margin: 5px 0;
+}
+
+/* Efeito hover */
+button:hover {
+  background-color: #350e0e;
+  text-shadow: #b3b3ac 0px 0px 10px;
+  transform: scale(1.05);
+}
+
+/* Resultado */
+#resultado {
+  margin-top: 20px;
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #e0e0e0;
+}
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fundo escuro translúcido */
+  text-align: center;
+  font-size: 12px;
+  color: white;
+  padding: 10px 0;
+  opacity: 0.8;
+  z-index: 1000; /* Garante que fique sempre acima de outros elementos */
+}
+
+
+/* Garante que os links do footer fiquem vermelhos ao passar o mouse */
+footer a:hover, 
+footer a:focus {
+  color: #b00000 !important; 
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+footer a:visited {
+  color: white;
+}
