@@ -56,6 +56,9 @@
         background-color: #55513f;
         border-color: rgb(167, 157, 104);
         color: white;
+        transform: scale(1.05);
+        box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+
     }
     
     #mensagem, #statusRodada, #resultadoFinal {
