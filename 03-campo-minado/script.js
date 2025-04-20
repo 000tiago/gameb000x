@@ -1,40 +1,56 @@
-/* As variáveis abaixo são definidas para controlar o estado do jogo, incluindo a rodada atual, o número total de rodadas, a posição da bomba, os pontos do jogador e se o jogo está ativo ou não. */ 
 let rodada = 1;
 const totalRodadas = 3;
-const bomba = Math.floor(Math.random() * 5) + 1;
+const bomba = Math.floor(Math.random() * 5) + 1; // Sorteia onde está a bomba
 let pontos = 0;
 let jogoAtivo = true;
 
 function jogar(tentativa) {
-const mensagem = document.getElementById("mensagem");
-const status = document.getElementById("statusRodada");
-const resultado = document.getElementById("resultadoFinal");
+    // Referências aos elementos da interface
+    const mensagem = document.getElementById("mensagem");
+    const status = document.getElementById("statusRodada");
+    const resultado = document.getElementById("resultadoFinal");
 
-if (!jogoAtivo) return;
+    // Interrompe se o jogo já terminou
+    if (!jogoAtivo) return;
 
-/* A função if abaixo verifica se a tentativa do jogador é válida, ou seja, se o número está entre 1 e 5. Se não for, exibe uma mensagem de erro e retorna. */
+    // Desabilita o botão clicado
+    const botoes = document.querySelectorAll("#botoes button");
+    botoes[tentativa - 1].disabled = true;
 
-if (tentativa === bomba) {
-    mensagem.innerHTML = "<i class='fas fa-bomb'></i> Você pisou na bomba!";
-    jogoAtivo = false;
-    status.textContent = "";
-    resultado.innerHTML = "<i class='fas fa-skull-crossbones'></i> <strong>Fim de jogo:</strong> você sobreviveu " + pontos + " rodada(s).";
+    // Verifica se clicou na bomba
+    if (tentativa === bomba) {
+        mensagem.innerHTML = "<i class='fas fa-bomb'></i> Você pisou na bomba!";
+        jogoAtivo = false;
+        status.textContent = "";
+        resultado.innerHTML = `<i class='fas fa-skull-crossbones'></i> <strong>Fim de jogo:</strong> você sobreviveu ${pontos} rodada(s).`;
 
-    //  Efeito tremor
-    document.body.classList.add("explosao");
+        // Exibe o botão de reiniciar
+        document.getElementById("reiniciar").style.display = "inline-block"; 
 
-    setTimeout(() => {
-        document.body.classList.remove("explosao");
-    }, 500); 
-    return;
+        // Efeito tremor
+        document.body.classList.add("explosao");
+        setTimeout(() => {
+            document.body.classList.remove("explosao");
+        }, 500);
+        return;
+    }
+
+    // Se clicou em caminho seguro
+    pontos++;
+    status.innerHTML = `<i class='fas fa-shield-alt'></i> <strong>Rodada ${rodada}</strong>: você avançou com segurança!`;
+    rodada++;
+
+    // Se venceu o jogo
+    if (rodada > totalRodadas) {
+        mensagem.innerHTML = "<i class='fas fa-trophy'></i> <strong>Parabéns!</strong> Você sobreviveu às 3 rodadas!";
+        resultado.innerHTML = `Pontuação final: <strong>${pontos}</strong>`;
+        jogoAtivo = false;
+
+        document.getElementById("reiniciar").style.display = "inline-block"; // Exibe o botão de reiniciar
+    }
 }
-pontos++;
-status.innerHTML = "<i class='fas fa-shield-alt'></i> <strong>Rodada " + rodada + "</strong>: você avançou com segurança!";
-rodada++;
 
-if (rodada > totalRodadas) {
-    mensagem.innerHTML = "<i class='fas fa-trophy'></i> <strong>Parabéns!</strong> Você sobreviveu às 3 rodadas!";
-    resultado.innerHTML = "Pontuação final: <strong>" + pontos + "</strong>";
-    jogoAtivo = false;
+function reiniciarJogo() {
+    location.reload(); // Recarrega a página para reiniciar o jogo  
 }
-}
+

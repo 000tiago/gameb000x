@@ -61,6 +61,10 @@
 
     }
     
+    button.hidden {
+        display: none;
+    }
+    
     #mensagem, #statusRodada, #resultadoFinal {
         font-size: 20px;
         margin: 10px 0;
@@ -114,3 +118,10 @@
         color: white;
     }
     
+
+/* Font Awesome Icons Centralizado com o Texto*/
+.fa-rotate-right {
+    display: inline-block; /* Permite o alinhamento com o texto */
+    margin-right: 5px; /* Espaço entre o ícone e o texto */
+    vertical-align: middle; /* Alinha o ícone com o texto */
+}

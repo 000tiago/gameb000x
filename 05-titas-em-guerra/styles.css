@@ -1,0 +1,168 @@
+
+  body {
+    font-family: "Cinzel", serif;
+    margin: 0;
+    padding: 2rem;
+    background: linear-gradient(145deg, #1e1e1e, #1e1e1e);
+    color: #fff;
+    text-align: center;
+  }
+  
+
+  /* Background Image */
+#bg-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url('../05-titas-em-guerra/imagem/bg.png') no-repeat center center;
+  background-size: cover;
+  z-index: -1;
+  pointer-events: none; /* impede que o fundo interfira nos cliques */
+}
+
+
+  h1 {
+    font-size: 1.5rem;
+    margin-bottom: 0.1rem;
+  }
+  
+  .instrucoes {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    color: #ccc;
+  }
+  
+  .galeria {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 itens por linha */
+    gap: 10px;
+    margin-bottom: 20px;
+    max-width: 1000px;
+    margin-inline: auto;
+  }
+  
+  
+  .card, .cards-selecao .card {
+    background-color: #333;
+    border: 2px solid #444;
+    border-radius: 1px;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: transform 0.2s, border-color 0.3s;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+    border-color: #888;
+  }
+  
+  .card img {
+    width: 100%;
+    height: auto;
+    border-radius: 1px;
+  }
+  
+  .card p {
+    margin-top: 0.5rem;
+    font-weight: bold;
+  }
+  
+  .card.selecionado {
+    border-color: #ffee00;
+  }
+  
+  .times {
+    display: none;
+    justify-content: space-around;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+  }
+  
+  .lado {
+    width: 100%;
+    max-width: 800px;
+  }
+  
+  .cards-selecao {
+    display: flex;
+    grid-template-columns: repeat(3, 1fr); /* 3 por linha */
+    gap: 1rem;
+  }
+  
+  .resultado {
+    margin-top: 0.0rem;
+    font-size: 1.4rem;
+    color: #ffcc00;
+  }
+  @media (max-width: 768px) {
+    .galeria {
+      grid-template-columns: repeat(2, 1fr); /* Apenas 2 por linha */
+      gap: 10px;
+    }
+  
+    .cards-selecao {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* 3 por linha */
+      gap: 10px;
+    }
+  
+    .cards-selecao .card {
+      width: 100%; /* Faz os cards se adaptarem ao espaço da grid */
+      max-width: 100px; /* Evita que fiquem grandes demais */
+      font-size: 0.8rem;
+    }
+  
+    .cards-selecao .card img {
+      width: 100%;
+      height: auto;
+      border-radius: 3px;
+    }
+  
+    .lado h2 {
+      font-size: 1.1rem;
+      margin-bottom: 8px;
+    }
+  
+    .resultado {
+      font-size: 1.4rem;
+    }
+  }
+  
+  
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fundo escuro translúcido */
+  text-align: center;
+  font-size: 12px;
+  color: white;
+  opacity: 0.8;
+  z-index: 1000; /* Garante que fique sempre acima de outros elementos */
+}
+
+footer:hover {
+  opacity: 1;
+}
+
+/* Garante que os links do footer fiquem vermelhos ao passar o mouse */
+footer a:hover, 
+footer a:focus {
+  color: #b00000 !important; 
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+footer a:visited {
+  color: white;
+}
+
